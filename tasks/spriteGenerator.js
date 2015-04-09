@@ -13,7 +13,7 @@ module.exports = function(grunt) {
     'use strict';
 
     var httpRegex = new RegExp('http[s]?', 'ig');
-    var imageRegex = new RegExp('background-image:[\\s]?url\\(["\']?([\\w\\d\\s!:./\\-\\_]*\\.[\\w?#]+)["\']?\\)[^;]*\;', 'ig');
+    var imageRegex = new RegExp('background-image:[\\s]?url\\(["\']?([\\w\\d\\s!:./\\-\\_]*\\.[\\w?#]+)["\']?\\)', 'ig');
     var filepathRegex = new RegExp('["\']?([\\w\\d\\s!:./\\-\\_]*\\.[\\w?#]+)["\']?', 'ig');
 
     grunt.registerMultiTask('spriteGenerator', 'Grunt task that generates a sprite from images referenced in a stylesheet and then updates the references with the new sprite image and positions', function() {
