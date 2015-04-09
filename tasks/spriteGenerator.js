@@ -117,8 +117,9 @@ module.exports = function(grunt) {
         var updateReferences = function(filepath, spritePath, arr) {
             var data = grunt.file.read(filepath);
 
+            var relativeSpritePath = path.relative(path.dirname(path.resolve(filepath)), path.resolve(spritePath));
             arr.forEach(function(obj) {
-                data = data.replace(obj.ref, 'background-image: url(\''+ spritePath +'\');\n    background-position: -'+ obj.coords.x +'px -'+ obj.coords.y +'px;');
+                data = data.replace(obj.ref, 'background-image: url(\''+ relativeSpritePath +'\'); background-position: -'+ obj.coords.x +'px -'+ obj.coords.y +'px;');
             });
 
             grunt.file.write(filepath, data);
